@@ -59,4 +59,4 @@ end
 
 # ~/.config/fish/config.fish
 
-starship init fish | source
+# starship init fish | source
