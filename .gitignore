@@ -1,0 +1,10 @@
+/yarn
+/fish/completions/
+/fish/conf.d/
+/fish/functions/
+/fish/fish_plugins
+/configstore
+/tmux/*.log
+
+iterm2
+htop

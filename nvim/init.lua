@@ -8,14 +8,15 @@ local has = function(x)
 end
 
 local is_mac = has("macunix")
-local is_win = has("win32")
 
 if is_mac then
 	require("macos")
-end
-if is_win then
+else
 	require("windows")
 end
 
 -- set default colorscheme
-vim.cmd("colorscheme kanagawa")
+local status, _ = pcall(require, "kanagawa")
+if status then
+	vim.cmd("colorscheme kanagawa")
+end

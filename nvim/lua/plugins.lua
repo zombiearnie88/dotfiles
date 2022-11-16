@@ -163,7 +163,6 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 
 	-- Tmux integration
-	-- use("christoomey/vim-tmux-navigator")
 	use("aserowy/tmux.nvim")
 
 	-- Split and window

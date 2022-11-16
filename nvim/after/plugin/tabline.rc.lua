@@ -24,3 +24,5 @@ tabline.setup({
 
 vim.keymap.set("n", "≥", "<Cmd>TablineBufferNext<CR>", {}) -- Alt+>
 vim.keymap.set("n", "≤", "<Cmd>TablineBufferPrevious<CR>", {}) -- Alt+<
+vim.keymap.set("n", "<A-.>", "<Cmd>TablineBufferNext<CR>", {}) -- Alt+>
+vim.keymap.set("n", "<A-,>", "<Cmd>TablineBufferPrevious<CR>", {}) -- Alt+<

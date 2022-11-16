@@ -48,7 +48,7 @@ protocol.CompletionItemKind = {
 local M = {}
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities) -- for nvim-cmp
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) -- for nvim-cmp
 
 -- Enable code folding based on LSP
 capabilities.textDocument.foldingRange = {
