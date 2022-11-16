@@ -3,8 +3,12 @@
 /fish/conf.d/
 /fish/functions/
 /fish/fish_plugins
+/fish/fish_variables
 /configstore
 /tmux/*.log
 
 iterm2
 htop
+
+fish/fish_plugins
+fish/fish_variables
