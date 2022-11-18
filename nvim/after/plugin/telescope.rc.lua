@@ -21,6 +21,7 @@ telescope.setup({
 		},
 		file_ignore_patterns = {
 			"node_modules",
+			".git",
 		},
 	},
 	extensions = {
@@ -29,6 +30,13 @@ telescope.setup({
 		-- 		-- even more opts
 		-- 	}),
 		-- },
+		fzf = {
+			fuzzy = true, -- false will only do exact matching
+			override_generic_sorter = true, -- override the generic sorter
+			override_file_sorter = true, -- override the file sorter
+			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+			-- the default case_mode is "smart_case"
+		},
 		file_browser = {
 			theme = "dropdown",
 			-- disables netrw and use telescope-file-browser in its place
@@ -63,6 +71,7 @@ telescope.setup({
 -- Load extensions
 telescope.load_extension("file_browser")
 telescope.load_extension("ui-select")
+telescope.load_extension("fzf")
 
 -- KEY MAPPING
 -- Vim Pickers
@@ -76,10 +85,14 @@ vim.keymap.set("n", "sg", function()
 	builtin.live_grep()
 end)
 vim.keymap.set("n", "sb", function()
-	builtin.buffers() -- list open buffers
+	builtin.buffers({
+		initial_mode = "normal",
+	}) -- list open buffers
 end)
 vim.keymap.set("n", "sm", function()
-	builtin.marks() -- list vim marks and their value
+	builtin.marks({
+		initial_mode = "normal",
+	}) -- list vim marks and their value
 end)
 vim.keymap.set("n", "st", function()
 	builtin.help_tags()
@@ -88,12 +101,16 @@ end)
 -- 	builtin.resume()
 -- end)
 vim.keymap.set("n", "se", function()
-	builtin.diagnostics()
+	builtin.diagnostics({
+		initial_mode = "normal",
+	})
 end)
 
 -- LSP pickers
 vim.keymap.set("n", "go", function()
-	builtin.lsp_document_symbols()
+	builtin.lsp_document_symbols({
+		initial_mode = "normal",
+	})
 end)
 
 vim.keymap.set("n", "gi", function()

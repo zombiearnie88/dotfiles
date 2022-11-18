@@ -150,6 +150,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-file-browser.nvim")
 	use("nvim-telescope/telescope-ui-select.nvim") -- replace vim native ui select
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- fuzzy finder
 	use("folke/trouble.nvim") -- showing diagnostics, references, telescope results, quickfix and location lists
 
 	-- Git
