@@ -68,7 +68,10 @@ return packer.startup(function(use)
 
 	-- Tabline
 	-- use("akinsho/bufferline.nvim")
-	use("kdheepak/tabline.nvim")
+	use({
+		"kdheepak/tabline.nvim",
+		requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
+	})
 
 	-- Status line
 	use("hoob3rt/lualine.nvim")
@@ -116,7 +119,7 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("nvim-treesitter/nvim-treesitter-context") -- sticky context
+	-- use("nvim-treesitter/nvim-treesitter-context") -- sticky context
 	use("windwp/nvim-autopairs") -- auto pairs
 	use("windwp/nvim-ts-autotag") -- auto tag
 	use("p00f/nvim-ts-rainbow") -- rainbow

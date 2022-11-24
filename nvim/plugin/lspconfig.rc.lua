@@ -47,22 +47,33 @@ protocol.CompletionItemKind = {
 
 local M = {}
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) -- for nvim-cmp
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities) -- for nvim-cmp
 
 -- Enable code folding based on LSP
-capabilities.textDocument.foldingRange = {
+M.capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
 
 -- SERVER SETUPs
 -- Typescript language setup
-nvim_lsp.tsserver.setup({
-	on_attach = on_attach,
-	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-	cmd = { "typescript-language-server", "--stdio" },
-	capabilities = M.capabilities,
+-- nvim_lsp.tsserver.setup({
+-- 	on_attach = on_attach,
+-- 	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+-- 	cmd = { "typescript-language-server", "--stdio" },
+-- 	capabilities = M.capabilities,
+-- })
+require("typescript").setup({
+	disable_commands = false, -- prevent the plugin from creating Vim commands
+	debug = false, -- enable debug logging for commands
+	go_to_source_definition = {
+		fallback = true, -- fall back to standard LSP definition on failure
+	},
+	server = { -- pass options to lspconfig's setup method
+		on_attach = on_attach,
+		capabilities = M.capabilities,
+	},
 })
 
 -- Lua language setup
