@@ -10,6 +10,7 @@ local lsp_formatting = function(bufnr)
 			-- apply whatever logic you want (in this example, we'll only use null-ls)
 			return client.name == "null-ls"
 		end,
+		async = true,
 		bufnr = bufnr,
 	})
 end
@@ -28,6 +29,7 @@ null_ls.setup({
 
 		--#code actions
 		null_ls.builtins.code_actions.eslint_d,
+		require("typescript.extensions.null-ls.code-actions"),
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
