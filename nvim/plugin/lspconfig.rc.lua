@@ -46,15 +46,16 @@ protocol.CompletionItemKind = {
 }
 
 local M = {}
--- Set up completion using nvim_cmp with LSP source
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities) -- for nvim-cmp
 
 -- Enable code folding based on LSP
 M.capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
+
+-- Set up completion using nvim_cmp with LSP source
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities) -- for nvim-cmp
 
 -- SERVER SETUPs
 -- Typescript language setup
