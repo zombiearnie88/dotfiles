@@ -67,11 +67,11 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim") -- Start screen
 
 	-- Tabline
-	-- use("akinsho/bufferline.nvim")
-	use({
-		"kdheepak/tabline.nvim",
-		requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
-	})
+	use("akinsho/bufferline.nvim")
+	-- use({
+	-- 	"kdheepak/tabline.nvim",
+	-- 	requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
+	-- })
 
 	-- Status line
 	use("hoob3rt/lualine.nvim")
@@ -171,9 +171,6 @@ return packer.startup(function(use)
 
 	-- Split and window
 	use("https://gitlab.com/yorickpeterse/nvim-window.git") -- easily jump between windows
-
-  -- color highlighter
-  use("NvChad/nvim-colorizer.lua")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

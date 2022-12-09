@@ -86,7 +86,6 @@ lualine.setup({
 		lualine_b = { branch },
 		lualine_c = {
 			nvimTreeType,
-			filename,
 			diagnostics,
 		},
 		lualine_x = {
@@ -99,18 +98,18 @@ lualine.setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = { branch },
-		lualine_c = { nvimTreeType, filename },
+		lualine_c = { nvimTreeType },
 		lualine_x = { location },
 		lualine_y = {},
 		lualine_z = {},
 	},
-	tabline = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { require("tabline").tabline_buffers },
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = { bufflerLabel },
-	},
+	-- tabline = {
+	-- 	lualine_a = {},
+	-- 	lualine_b = {},
+	-- 	lualine_c = { require("tabline").tabline_buffers },
+	-- 	lualine_x = {},
+	-- 	lualine_y = {},
+	-- 	lualine_z = { bufflerLabel },
+	-- },
 	extensions = {},
 })
