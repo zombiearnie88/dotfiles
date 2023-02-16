@@ -3,11 +3,17 @@ if not status then
 	return
 end
 
-local nvimTreeWidth = 32
-
-local function bufflerLabel()
-	return [[Buffers]]
+local hide_in_width = function()
+	return vim.fn.winwidth(0) > 80
 end
+
+local show_in_width = function()
+	return vim.fn.winwidth(0) < 80
+end
+
+-- local function bufflerLabel()
+-- 	return [[Buffers]]
+-- end
 
 local diagnostics = {
 	"diagnostics",
@@ -19,58 +25,42 @@ local filename = {
 	"filename",
 	file_status = true, -- displays file status
 	path = 0, -- just filename
-	cond = function()
-		return vim.fn.winwidth(0) > nvimTreeWidth
-	end,
+	cond = hide_in_width,
 }
 
 local nvimTreeType = {
 	"filetype",
-	cond = function()
-		return vim.fn.winwidth(0) < nvimTreeWidth
-	end,
+	cond = show_in_width,
 }
 
 local filetype = {
 	"filetype",
-	cond = function()
-		return vim.fn.winwidth(0) > nvimTreeWidth
-	end,
+	cond = hide_in_width,
 }
 
 local branch = {
 	"branch",
-	cond = function()
-		return vim.fn.winwidth(0) > nvimTreeWidth
-	end,
+	cond = hide_in_width,
 }
 
 local encoding = {
 	"encoding",
-	cond = function()
-		return vim.fn.winwidth(0) > nvimTreeWidth
-	end,
+	cond = hide_in_width,
 }
 
 local mode = {
 	"mode",
-	cond = function()
-		return vim.fn.winwidth(0) > nvimTreeWidth
-	end,
+	cond = hide_in_width,
 }
 
 local progress = {
 	"progress",
-	cond = function()
-		return vim.fn.winwidth(0) > nvimTreeWidth
-	end,
+	cond = hide_in_width,
 }
 
 local location = {
 	"location",
-	cond = function()
-		return vim.fn.winwidth(0) > nvimTreeWidth
-	end,
+	cond = hide_in_width,
 }
 
 lualine.setup({
@@ -80,11 +70,13 @@ lualine.setup({
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "Outline" },
+		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = { mode },
 		lualine_b = { branch },
 		lualine_c = {
+			filename,
 			nvimTreeType,
 			diagnostics,
 		},
@@ -98,7 +90,7 @@ lualine.setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = { branch },
-		lualine_c = { nvimTreeType },
+		lualine_c = { filename, nvimTreeType },
 		lualine_x = { location },
 		lualine_y = {},
 		lualine_z = {},
@@ -111,5 +103,6 @@ lualine.setup({
 	-- 	lualine_y = {},
 	-- 	lualine_z = { bufflerLabel },
 	-- },
+	tabline = {},
 	extensions = {},
 })
