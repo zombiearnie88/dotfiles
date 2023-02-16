@@ -3,16 +3,22 @@ if not status then
 	return
 end
 
-saga.init_lsp_saga({
-	code_action_lightbulb = {
+saga.setup({
+	lightbulb = {
 		enable = false,
+		enable_in_insert = false,
+		sign = false,
+		sign_priority = 40,
+		virtual_text = false,
 	},
 	symbol_in_winbar = {
-		in_custom = false,
-		enable = true,
+		enable = false,
 		separator = " ",
+		hide_keyword = true,
 		show_file = true,
-		click_support = false,
+		folder_level = 2,
+		respect_root = false,
+		color_mode = true,
 	},
 })
 
@@ -38,11 +44,17 @@ keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 -- support tagstack C-t jump back
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 
+-- Go to definition
+keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
+
 -- Show line diagnostics
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+keymap("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
 
 -- Show cursor diagnostic
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+keymap("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+
+-- Show buffer diagnostics
+keymap("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 
 -- Diagnsotic jump can use `<c-o>` to jump back
 keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
@@ -56,11 +68,15 @@ keymap("n", "]E", function()
 	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
--- Outline
--- keymap("n", ";o", "<cmd>LSoutlineToggle<CR>", { silent = true })
+-- Show Outline
+keymap("n", "<leader>so", "<cmd>LSoutlineToggle<CR>", { silent = true })
 
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+
+-- Call hierarchy
+keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
+keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Float terminal
 -- Lazygit
@@ -68,6 +84,8 @@ keymap("n", "<leader>lg", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = t
 -- htop
 keymap("n", "<leader>ht", ":Lspsaga open_floaterm htop<CR>", { silent = true })
 
--- toggle floaterm <A-d> = ∂
+-- Toggle floaterm <A-d> = ∂
 keymap("n", "∂", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 keymap("t", "∂", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+keymap("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
