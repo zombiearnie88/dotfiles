@@ -20,33 +20,37 @@ vim.g.maplocalleader = " "
 -- keymap("n", "<leader>r", ":source $MYVIMRC<cr>", {})
 
 -- Moving line up and down in normal, visual, visual-block mode with <A-j>, <A-k>
-keymap("n", "∆", ":m .+1<return>", opts)
-keymap("n", "˚", ":m .-2<return>", opts)
-keymap("n", "<A-j>", ":m .+1<return>", opts)
-keymap("n", "<A-k>", ":m .-2<return>", opts)
-
-keymap("v", "∆", ":m .+1<CR>==", opts)
-keymap("v", "˚", ":m .-2<CR>==", opts)
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-
-keymap("x", "∆", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "˚", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
-keymap("i", "∆", "<Esc>:m .+1<CR>==gi", opts)
-keymap("i", "˚", "<Esc>:m .-2<CR>==gi", opts)
-keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- keymap("n", "∆", ":m .+1<return>", opts)
+-- keymap("n", "˚", ":m .-2<return>", opts)
+-- keymap("n", "<A-j>", ":m .+1<return>", opts)
+-- keymap("n", "<A-k>", ":m .-2<return>", opts)
+--
+-- keymap("v", "∆", ":m .+1<CR>==", opts)
+-- keymap("v", "˚", ":m .-2<CR>==", opts)
+-- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
+-- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+--
+-- keymap("x", "∆", ":move '>+1<CR>gv-gv", opts)
+-- keymap("x", "˚", ":move '<-2<CR>gv-gv", opts)
+-- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+-- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+--
+-- keymap("i", "∆", "<Esc>:m .+1<CR>==gi", opts)
+-- keymap("i", "˚", "<Esc>:m .-2<CR>==gi", opts)
+-- keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+-- keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Save file
 keymap("", "ß", ":w<cr>", opts) -- Alt-S Save file
 keymap("", "<A-S>", ":w<cr>", opts) -- Alt-S Save file
 
+-- Close file
+keymap("", "œ", ":w<cr>", opts) -- Alt-q
+keymap("", "<A-q>", ":q<cr>", opts) -- Alt-q
+
 -- NORMAL MODE --
 -- New tab
-keymap("n", "te", ":tabedit<Return>", { silent = true })
+keymap("n", "<leader>t", ":tabedit<Return>", { silent = true })
 
 -- Split Window
 keymap("n", "sh", ":split<Return><C-w>w", { silent = true })

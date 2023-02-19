@@ -75,53 +75,53 @@ telescope.load_extension("fzf")
 
 -- KEY MAPPING
 -- Vim Pickers
-vim.keymap.set("n", "sf", function()
+vim.keymap.set("n", "<leader>ff", function()
 	builtin.find_files({
 		no_ignore = false,
 		hidden = true,
 	})
 end)
-vim.keymap.set("n", "sg", function()
+vim.keymap.set("n", "<leader>fg", function()
 	builtin.live_grep()
 end)
-vim.keymap.set("n", "sb", function()
-	builtin.buffers({
-		initial_mode = "normal",
-	}) -- list open buffers
+vim.keymap.set("n", "<leader>fb", function()
+	builtin.buffers() -- list open buffers
 end)
-vim.keymap.set("n", "sm", function()
+vim.keymap.set("n", "<leader>fm", function()
 	builtin.marks({
 		initial_mode = "normal",
 	}) -- list vim marks and their value
 end)
-vim.keymap.set("n", "st", function()
+vim.keymap.set("n", "<leader>ft", function()
 	builtin.help_tags()
 end)
 -- vim.keymap.set("n", ";;", function()
 -- 	builtin.resume()
 -- end)
-vim.keymap.set("n", "se", function()
+vim.keymap.set("n", "<leader>fe", function()
 	builtin.diagnostics({
 		initial_mode = "normal",
 	})
 end)
 
 -- LSP pickers
-vim.keymap.set("n", "go", function()
-	builtin.lsp_document_symbols({
-		initial_mode = "normal",
-	})
+vim.keymap.set("n", "<leader>go", function()
+	builtin.lsp_document_symbols() -- list outline symbols
 end)
 
-vim.keymap.set("n", "gi", function()
+vim.keymap.set("n", "<leader>gi", function()
 	builtin.lsp_implementations()
 end)
 
-vim.keymap.set("n", "gf", function()
+vim.keymap.set("n", "<leader>gd", function()
+	builtin.lsp_definitions()
+end)
+
+vim.keymap.set("n", "<leader>gf", function()
 	builtin.lsp_references()
 end)
 
-vim.keymap.set("n", "sn", function()
+vim.keymap.set("n", "<leader>fn", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",
 		cwd = telescope_buffer_dir(),
