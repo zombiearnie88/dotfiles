@@ -50,7 +50,7 @@ keymap("", "<A-q>", ":q<cr>", opts) -- Alt-q
 
 -- NORMAL MODE --
 -- New tab
-keymap("n", "<leader>t", ":tabedit<Return>", { silent = true })
+keymap("n", "bt", ":tabedit<Return>", { silent = true })
 
 -- Split Window
 keymap("n", "sh", ":split<Return><C-w>w", { silent = true })

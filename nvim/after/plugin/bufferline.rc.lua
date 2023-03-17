@@ -167,8 +167,9 @@ bufferline.setup({
 		},
 	},
 })
-vim.keymap.set("n", "≥", "<Cmd>BufferLineCycleNext<CR>", {}) -- Alt+.
-vim.keymap.set("n", "≤", "<Cmd>BufferLineCyclePrev<CR>", {}) -- Alt+,
 
-vim.keymap.set("n", "<A-.>", "<Cmd>BufferLineCycleNext<CR>", {}) -- Alt+.
-vim.keymap.set("n", "<A-,>", "<Cmd>BufferLineCyclePrev<CR>", {}) -- Alt+,
+vim.keymap.set("n", "b]", "<Cmd>BufferLineCycleNext<CR>", {})
+vim.keymap.set("n", "b[", "<Cmd>BufferLineCyclePrev<CR>", {})
+
+vim.keymap.set("n", "bp", "<Cmd>BufferLinePick<CR>", {})
+vim.keymap.set("n", "bw", "<Cmd>BufferLinePickClose<CR>", {})
