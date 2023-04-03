@@ -10,5 +10,5 @@ end
 mason.setup({})
 
 lspconfig.setup({
-	ensure_installed = { "lua_ls", "tsserver", "jsonls" },
+	ensure_installed = { "tsserver", "jsonls" },
 })
