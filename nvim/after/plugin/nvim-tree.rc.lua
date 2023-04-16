@@ -92,3 +92,4 @@ nvim_tree.setup({
 
 -- mapping
 vim.api.nvim_set_keymap("n", "ss", ":NvimTreeFocus<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "sw", ":NvimTreeClose<cr>", { noremap = true, silent = true })
