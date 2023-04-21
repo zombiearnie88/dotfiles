@@ -4,14 +4,14 @@
 
 * {
     background-color:       @bg;
-    text-color:             @fg;
+    text-color:             @fga;
 	font:				 	"Iosevka Nerd Font 10";
 }
 
 window {
-    width:      			225px;
+    width:      			320px;
     padding:    			25px;
-    border:					0px 0px 2px 0px;
+    border:					0px 0px 4px 0px;
     border-radius:          0px;
     border-color:           @ac;
     location:               center;

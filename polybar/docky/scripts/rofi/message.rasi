@@ -2,24 +2,23 @@
 
 @import "colors.rasi"
 
-configuration {
+* {
     background-color:       @bg;
     text-color:             @fg;
-    font:				 	          "Jetbrains Mono Nerd Font 10";
-    dpi:                    192;
+	font:				 	"Iosevka Nerd Font 10";
 }
 
 window {
-    width:      			    700;
-    padding:    			    25px;
-    border:					      0px 0px 2px 0px;
-    border-radius:        0px;
-    border-color:         @ac;
-    location:             center;
-    y-offset:             -2em;
+    width:      			320px;
+    padding:    			25px;
+    border:					0px 0px 2px 0px;
+    border-radius:          0px;
+    border-color:           @ac;
+    location:               center;
+    y-offset:               -2em;
 }
 
 entry {
-    expand: 				      true;
-    text-color:				    @ac;
+    expand: 				true;
+    text-color:				@ac;
 }

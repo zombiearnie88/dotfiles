@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Jetbrains Mono Nerd Font 10";
+	font:							"Iosevka Nerd Font 10";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -17,7 +17,7 @@ configuration {
     fullscreen:                     false;
 	hide-scrollbar: 				true;
 	sidebar-mode: 					false;
-  dpi:                              192;
+  dpi: 192;
 }
 
 @import "colors.rasi"
@@ -29,7 +29,7 @@ window {
 	border:							0px 0px 2px 0px;
 	border-color:					@ac;
     border-radius:                  0px;
-	width:							700px;
+	width:							550px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -45,7 +45,7 @@ prompt {
 textbox-prompt-colon {
 	background-color: 				@al;
 	text-color: 					@bar;
-	expand: true;
+	expand: false;
 	str: "";
 	font:							"feather 12";
 }
