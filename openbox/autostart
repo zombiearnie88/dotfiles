@@ -7,7 +7,7 @@
 # Change if issues
 #autorandr horizontal
 
-picom -b --config ~/.config/picom.conf &
+picom -b --config ~/.config/openbox/picom.conf &
 
 # lockscreen highjack 
 xss-lock -- betterlockscreen -l dim &
@@ -18,10 +18,11 @@ xss-lock -- betterlockscreen -l dim &
 # Set background image
 nitrogen --restore &
 
-# tint2 &
+# panel
+tint2 &
 
 # polybar
-$HOME/.config/polybar/blocks/launch.sh &
+# $HOME/.config/polybar/blocks/launch.sh &
 
 # plank dock
 plank &
