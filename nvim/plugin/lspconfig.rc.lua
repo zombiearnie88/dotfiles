@@ -6,7 +6,7 @@ end
 local protocol = require("vim.lsp.protocol")
 
 local on_attach = function(client, bufnr)
-	print(client.name)
+	-- print(client.name)
 	-- all formatting done by null-ls
 
 	local function buf_set_option(...)
