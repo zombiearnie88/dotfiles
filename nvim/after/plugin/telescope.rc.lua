@@ -14,6 +14,10 @@ local fb_actions = telescope.extensions.file_browser.actions
 
 telescope.setup({
 	defaults = {
+		layout_config = {
+			vertical = { width = 0.5 },
+			-- other layout configuration here
+		},
 		mappings = {
 			n = {
 				["q"] = actions.close,
@@ -22,6 +26,32 @@ telescope.setup({
 		file_ignore_patterns = {
 			"node_modules",
 			".git",
+		},
+	},
+	pickers = {
+		find_files = {
+			theme = "dropdown",
+		},
+		lsp_document_symbols = {
+			theme = "dropdown",
+		},
+		buffers = {
+			theme = "dropdown",
+		},
+		marks = {
+			theme = "dropdown",
+		},
+		diagnostics = {
+			theme = "dropdown",
+		},
+		lsp_references = {
+			theme = "dropdown",
+		},
+		lsp_definitions = {
+			theme = "dropdown",
+		},
+		lsp_implementations = {
+			theme = "dropdown",
 		},
 	},
 	extensions = {
@@ -75,53 +105,54 @@ telescope.load_extension("fzf")
 
 -- KEY MAPPING
 -- Vim Pickers
-vim.keymap.set("n", "<leader>ff", function()
+vim.keymap.set("n", "ff", function()
 	builtin.find_files({
 		no_ignore = false,
 		hidden = true,
 	})
 end)
-vim.keymap.set("n", "<leader>fg", function()
+vim.keymap.set("n", "fg", function()
 	builtin.live_grep()
 end)
-vim.keymap.set("n", "<leader>fb", function()
+vim.keymap.set("n", "fb", function()
 	builtin.buffers() -- list open buffers
 end)
-vim.keymap.set("n", "<leader>fm", function()
+vim.keymap.set("n", "fm", function()
 	builtin.marks({
 		initial_mode = "normal",
 	}) -- list vim marks and their value
 end)
-vim.keymap.set("n", "<leader>ft", function()
+vim.keymap.set("n", "ft", function()
 	builtin.help_tags()
 end)
 -- vim.keymap.set("n", ";;", function()
 -- 	builtin.resume()
 -- end)
-vim.keymap.set("n", "<leader>fe", function()
+vim.keymap.set("n", "fe", function()
 	builtin.diagnostics({
 		initial_mode = "normal",
 	})
 end)
 
 -- LSP pickers
-vim.keymap.set("n", "<leader>go", function()
-	builtin.lsp_document_symbols() -- list outline symbols
-end)
+-- vim.keymap.set("n", "<leader>go", function()
+-- 	builtin.lsp_document_symbols() -- list outline symbols
+-- end)
+--
+-- vim.keymap.set("n", "<leader>gi", function()
+-- 	builtin.lsp_implementations()
+-- end)
+--
+-- vim.keymap.set("n", "<leader>gd", function()
+-- 	builtin.lsp_definitions()
+-- end)
 
-vim.keymap.set("n", "<leader>gi", function()
-	builtin.lsp_implementations()
-end)
+-- use lspsaga finder instead
+-- vim.keymap.set("n", "<leader>gf", function()
+-- 	builtin.lsp_references()
+-- end)
 
-vim.keymap.set("n", "<leader>gd", function()
-	builtin.lsp_definitions()
-end)
-
-vim.keymap.set("n", "<leader>gf", function()
-	builtin.lsp_references()
-end)
-
-vim.keymap.set("n", "<leader>fn", function()
+vim.keymap.set("n", "fn", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",
 		cwd = telescope_buffer_dir(),
