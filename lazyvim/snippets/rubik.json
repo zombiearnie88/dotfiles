@@ -1,0 +1,18 @@
+{
+  "Rubik short comment": {
+    "prefix": "rb*",
+    "body": ["/* $1 */"]
+  },
+  "Rubik dash comment": {
+    "prefix": "rb-",
+    "body": ["/* ----- $1 ----- */"]
+  },
+  "Rubik slash comment": {
+    "prefix": "rb/",
+    "body": "//-"
+  },
+  "Console Debug": {
+    "prefix": "rbdebug",
+    "body": "console.debug($1)"
+  }
+}
