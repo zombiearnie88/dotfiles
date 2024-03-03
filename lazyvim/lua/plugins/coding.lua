@@ -1,12 +1,34 @@
 return {
-  -- RENAME
+  -- INC-RENAME
   {
     "smjonas/inc-rename.nvim",
+    enabled = false,
     cmd = "IncRename",
     config = true,
   },
   -- end rename
 
+  -- COMMENT
+  {
+    "echasnovski/mini.comment",
+    enabled = false,
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+  {
+    "numToStr/Comment.nvim",
+    lazy = false,
+    opts = {
+      pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+    },
+  },
+  -- end comment
+  --
   -- INDENT
   {
     "echasnovski/mini.indentscope",
@@ -48,7 +70,10 @@ return {
   -- Disable default <tab> and <s-tab> behavior in LuaSnip
   {
     "L3MON4D3/LuaSnip",
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "saadparwaiz1/cmp_luasnip",
+    },
     keys = function()
       return {}
     end,
@@ -82,9 +107,6 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       }
-      -- table.insert(opts.sources, { name = "luasnip" })
-      -- table.insert(opts.sources, { name = "nvim_lsp" })
-      -- table.insert(opts.sources, { name = "buffer" })
 
       opts.sources = {
         { name = "luasnip" },
@@ -136,10 +158,6 @@ return {
         }),
       })
     end,
-  },
-  -- Luasnip completion source for cmp
-  {
-    "saadparwaiz1/cmp_luasnip",
   },
   -- end snippet
 }
